@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &227423310
+--- !u!1001 &137663428
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -137,15 +137,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eadd0e546f88334faac629d9ffa54d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.7976575
+      value: -6.326124
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eadd0e546f88334faac629d9ffa54d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.04
+      value: 0.0000038534054
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eadd0e546f88334faac629d9ffa54d0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.7028
+      value: -8.710758
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8eadd0e546f88334faac629d9ffa54d0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -175,33 +175,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6760572482474158015, guid: 8eadd0e546f88334faac629d9ffa54d0, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -2356334560395057147, guid: 8eadd0e546f88334faac629d9ffa54d0, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -656692124029830591, guid: 8eadd0e546f88334faac629d9ffa54d0, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8eadd0e546f88334faac629d9ffa54d0, type: 3}
       propertyPath: m_Name
       value: excavator
-      objectReference: {fileID: 0}
-    - target: {fileID: 1480834733865847916, guid: 8eadd0e546f88334faac629d9ffa54d0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 3665604573569689925, guid: 8eadd0e546f88334faac629d9ffa54d0, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8154177039576419879, guid: 8eadd0e546f88334faac629d9ffa54d0, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
