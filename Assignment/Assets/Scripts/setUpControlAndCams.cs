@@ -2,26 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class setUpCameras : MonoBehaviour
+public class setUpControlAndCams : MonoBehaviour
 {
     public Camera PlayerCamera;
     public Camera ExcavCamera;
 
-    public bool switchCam;
+    public GameObject excavator;
+    private excavatorController excavControl;
+    public GameObject player;
+    private playerController playerControl;
+
+    public bool switchControl;
 
     // Start is called before the first frame update
     void Start()
     {
-        switchCam = false;
+        switchControl = false;
+        excavControl = excavator.GetComponent<excavatorController>();
+        playerControl = player.GetComponent<playerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (switchCam)
+        if (switchControl)
         {
             PlayerCamera.enabled = false;
             ExcavCamera.enabled = true;
+
+            playerControl.enabled = false;
+            excavControl.enabled = true;
 
             PlayerCamera.GetComponent<AudioListener>().enabled = false;
             ExcavCamera.GetComponent<AudioListener>().enabled = true;
@@ -30,6 +40,9 @@ public class setUpCameras : MonoBehaviour
         {
             PlayerCamera.enabled = true;
             ExcavCamera.enabled = false;
+
+            playerControl.enabled = true;
+            excavControl.enabled = false;
 
             PlayerCamera.GetComponent<AudioListener>().enabled = true;
             ExcavCamera.GetComponent<AudioListener>().enabled = false;
