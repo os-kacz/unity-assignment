@@ -60,7 +60,7 @@ public class playerController : MonoBehaviour
     void locomote(float vertical)
     {
         Rigidbody playerBody = this.GetComponent<Rigidbody>();
-        Vector3 move = new Vector3(0f, 0f, vertical*0.07f);
+        Vector3 move = new Vector3(0f, 0f, vertical*0.05f);
         playerBody.transform.Translate(move);
         if (vertical > 0) // forward
         {

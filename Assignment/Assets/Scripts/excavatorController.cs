@@ -17,9 +17,12 @@ public class excavatorController : MonoBehaviour
     {
         float vertical = Input.GetAxis("Vertical");
         float turn = Input.GetAxis("Horizontal");
+        float wheel_on = Input.GetAxis("Fire1");
+        float wheel_off = Input.GetAxis("Fire2");
         turnOnSpot(turn, vertical);
         locomote(vertical);
         turnWhileLoco(turn);
+        controlWheel(wheel_on, wheel_off);
     }
     void turnOnSpot(float horizontal, float vertical)
     {
@@ -28,18 +31,31 @@ public class excavatorController : MonoBehaviour
             if (horizontal > 0) // turn right
             {
                 anim.SetBool("righttrack", true);
-                anim.SetBool("lefttrack", false);
+                anim.SetFloat("rightspeed", -1);
+                anim.SetBool("lefttrack", true);
+                anim.SetFloat("leftspeed", 1);
             }
             else if (horizontal < 0) // turn left
             {
-                anim.SetBool("righttrack", false);
+                anim.SetBool("righttrack", true);
+                anim.SetFloat("rightspeed", 1);
                 anim.SetBool("lefttrack", true);
+                anim.SetFloat("leftspeed", -1);
+            }
+            else
+            {
+                anim.SetBool("righttrack", false);
+                anim.SetFloat("rightspeed", 1);
+                anim.SetBool("lefttrack", false);
+                anim.SetFloat("leftspeed", 1);
             }
         }
         else
         {
             anim.SetBool("righttrack", false);
+            anim.SetFloat("rightspeed", 1);
             anim.SetBool("lefttrack", false);
+            anim.SetFloat("leftspeed", 1);
         }
     }
 
@@ -56,19 +72,33 @@ public class excavatorController : MonoBehaviour
     void locomote(float vertical)
     {
         Rigidbody excavBody = this.GetComponent<Rigidbody>();
-        Vector3 move = new Vector3(-vertical*0.07f, 0f, 0f);
+        Vector3 move = new Vector3(-vertical*0.09f, 0f, 0f);
         excavBody.transform.Translate(move);
         if (vertical > 0) // forward
         {
-            ;
+            anim.SetBool("righttrack", true);
+            anim.SetFloat("rightspeed", 1);
+            anim.SetBool("lefttrack", true);
+            anim.SetFloat("leftspeed", 1);
         }
         if (vertical < 0) // backward
         {
-            ;
+            anim.SetBool("righttrack", true);
+            anim.SetFloat("rightspeed", -1);
+            anim.SetBool("lefttrack", true);
+            anim.SetFloat("leftspeed", -1);
         }
-        if (vertical == 0) // standstill
+    }
+
+    void controlWheel(float wheel_on, float wheel_off)
+    {
+        if (wheel_on > 0)
         {
-            ;
+            anim.SetBool("wheel", true);
+        }
+        if (wheel_off > 0)
+        {
+            anim.SetBool("wheel", false);
         }
     }
 }
