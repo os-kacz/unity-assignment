@@ -5,11 +5,15 @@ using UnityEngine;
 public class enterExcavator : MonoBehaviour
 {
     public setUpControlAndCams gamecontroller;
-    private bool enterable;
+    [SerializeField] private bool enterable;
+
+    private GameObject player;
+    [SerializeField] private float elapsed_time;
     // Start is called before the first frame update
     void Start()
     {
         gamecontroller = gamecontroller.GetComponent<setUpControlAndCams>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void OnTriggerEnter(Collider other)
@@ -30,12 +34,23 @@ public class enterExcavator : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (enterable)
+        elapsed_time = elapsed_time + Time.deltaTime;
+
+        if (gamecontroller.switchControl)
         {
-            if (Input.GetAxis("Submit") == 1)
+            player.transform.parent = this.transform;
+        }
+        else
+        {
+            player.transform.parent = null;
+        }
+
+        if (enterable || gamecontroller.switchControl)
+        {
+            if (Input.GetAxis("Submit") == 1 && elapsed_time > 2)
             {
                 gamecontroller.switchControl = !gamecontroller.switchControl;
-                enterable = false;
+                elapsed_time = 0;
             }
         }
     }

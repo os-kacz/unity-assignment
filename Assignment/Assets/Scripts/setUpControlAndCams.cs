@@ -28,6 +28,7 @@ public class setUpControlAndCams : MonoBehaviour
         if (switchControl)
         {
             PlayerCamera.enabled = false;
+            player.SetActive(false);
             ExcavCamera.enabled = true;
 
             playerControl.enabled = false;
@@ -39,6 +40,7 @@ public class setUpControlAndCams : MonoBehaviour
         else
         {
             PlayerCamera.enabled = true;
+            player.SetActive(true);
             ExcavCamera.enabled = false;
 
             playerControl.enabled = true;
